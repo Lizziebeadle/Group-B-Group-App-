@@ -1,6 +1,0 @@
-framework module Pods_Group_B__Group_App {
-  umbrella header "Pods-Group B- Group App-umbrella.h"
-
-  export *
-  module * { export * }
-}
