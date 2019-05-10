@@ -20,6 +20,11 @@ class ViewController: UIViewController {
             
             mapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: "marker")
             mapView.delegate = self
+        
+        
+        let coordinate = CLLocationCoordinate2D(latitude: 50.715739, longitude: -1.875466)
+        let region = CLCircularRegion(center: coordinate, radius: 10, identifier: "Pier")
+        locationManager.startMonitoring(for: region)
             
             let firstCoordinate = CLLocationCoordinate2D(latitude: 50.718062, longitude:  -1.866536)
             let firstAnnotation = CustomAnnotation(coordinate: firstCoordinate, title: "Clue 1")
@@ -121,3 +126,6 @@ class ViewController: UIViewController {
             }
         
     }
+
+
+
