@@ -120,4 +120,26 @@ class ViewController: UIViewController {
                 vc.annotation = sender as? CustomAnnotation
             }
         
+        
+        
+        
+        override func viewDidAppear(_ animated: Bool) {
+            createAlert(title: "CONGRATULATIONS", message: "YOU FOUND A CLUE")
+        }
+        
+        
+        func createAlert (title:String, message:String)
+        {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+            //CREATING ON BUTTON
+            
+            alert.addAction(UIAlertAction(title: "GIVE HINT FOR NEXT CLUE", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+                print( "GIVE HINT FOR NEXT CLUE")
+            
+          
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
