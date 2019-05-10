@@ -12,6 +12,7 @@
 		44AA095022537E38002E3E5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44AA094E22537E38002E3E5B /* Main.storyboard */; };
 		44AA095222537E39002E3E5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44AA095122537E39002E3E5B /* Assets.xcassets */; };
 		44AA095522537E39002E3E5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44AA095322537E39002E3E5B /* LaunchScreen.storyboard */; };
+		735DD30B2285CFDC00434EEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 735DD30A2285CFDC00434EEA /* GoogleService-Info.plist */; };
 		73F3D1F1227993620002B446 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3D1F0227993620002B446 /* CustomAnnotation.swift */; };
 		73F3D1F3227993A10002B446 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3D1F2227993A10002B446 /* CustomAnnotationView.swift */; };
 		73F3D1F522799F340002B446 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3D1F422799F340002B446 /* SecondViewController.swift */; };
@@ -28,6 +29,7 @@
 		44AA095422537E39002E3E5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44AA095622537E39002E3E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		635F60E9FD12D0FA3CB21219 /* Pods-Group B- Group App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Group B- Group App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Group B- Group App/Pods-Group B- Group App.release.xcconfig"; sourceTree = "<group>"; };
+		735DD30A2285CFDC00434EEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73F3D1F0227993620002B446 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		73F3D1F2227993A10002B446 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		73F3D1F422799F340002B446 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				44AA095622537E39002E3E5B /* Info.plist */,
 				73F3D1F422799F340002B446 /* SecondViewController.swift */,
 				73F3D1FA2279A21D0002B446 /* LocationGroupApp.gpx */,
+				735DD30A2285CFDC00434EEA /* GoogleService-Info.plist */,
 			);
 			path = "Group B- Group App";
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44AA095522537E39002E3E5B /* LaunchScreen.storyboard in Resources */,
+				735DD30B2285CFDC00434EEA /* GoogleService-Info.plist in Resources */,
 				44AA095222537E39002E3E5B /* Assets.xcassets in Resources */,
 				44AA095022537E38002E3E5B /* Main.storyboard in Resources */,
 			);

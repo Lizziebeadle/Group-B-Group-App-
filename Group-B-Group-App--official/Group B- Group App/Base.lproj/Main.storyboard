@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" showsPointsOfInterest="NO" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyT-1I-lmi">
+                            <mapView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satelliteFlyover" showsUserLocation="YES" showsPointsOfInterest="NO" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyT-1I-lmi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                         </subviews>
@@ -33,7 +33,7 @@
                     <navigationItem key="navigationItem" id="LOq-jl-COd"/>
                     <connections>
                         <outlet property="mapView" destination="gyT-1I-lmi" id="xNd-RD-O4u"/>
-                        <segue destination="fBa-ZG-bTa" kind="show" identifier="Next" customClass="Next" id="X6u-I1-asJ"/>
+                        <segue destination="fBa-ZG-bTa" kind="show" identifier="Next" customClass="UIStoryBoardSegue" id="X6u-I1-asJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -59,7 +59,7 @@
         <!--Second View Controller-->
         <scene sceneID="xHw-xu-OcS">
             <objects>
-                <viewController storyboardIdentifier="SecondViewController" id="fBa-ZG-bTa" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" id="fBa-ZG-bTa" customClass="SecondViewController" customModule="Group_B__Group_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y2e-nD-X8A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

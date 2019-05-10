@@ -1,5 +1,7 @@
 import UIKit
 import MapKit
+import Firebase
+
 
 class ViewController: UIViewController {
     
@@ -22,46 +24,29 @@ class ViewController: UIViewController {
             mapView.delegate = self
         
         
-        let coordinate = CLLocationCoordinate2D(latitude: 50.715739, longitude: -1.875466)
-        let region = CLCircularRegion(center: coordinate, radius: 10, identifier: "Pier")
-        locationManager.startMonitoring(for: region)
-            
-            let firstCoordinate = CLLocationCoordinate2D(latitude: 50.718062, longitude:  -1.866536)
-            let firstAnnotation = CustomAnnotation(coordinate: firstCoordinate, title: "Clue 1")
-            locations.append(firstAnnotation)
-            
-            
-            let secondCoordinate = CLLocationCoordinate2D(latitude: 50.7138, longitude:  -1.8745)
-            let secondAnnotation = CustomAnnotation(coordinate: secondCoordinate, title: "Clue 2")
-            locations.append(secondAnnotation)
-            
-            let thirdCoordinate = CLLocationCoordinate2D(latitude: 50.718003, longitude:  -1.874715)
-            let thirdAnnotation = CustomAnnotation(coordinate: thirdCoordinate, title: "Clue 3")
-            locations.append(thirdAnnotation)
+//        let coordinate = CLLocationCoordinate2D(latitude: 50.715739, longitude: -1.875466)
+//        let region = CLCircularRegion(center: coordinate, radius: 10, identifier: "Pier")
+//        locationManager.startMonitoring(for: region)
         
-            let forthCoordinate = CLLocationCoordinate2D(latitude: 50.719107, longitude:  -1.878113)
-            let forthAnnotation = CustomAnnotation(coordinate: forthCoordinate, title: "Clue 4")
-            locations.append(forthAnnotation)
-        
-            let fifthCoordinate = CLLocationCoordinate2D(latitude: 50.717685, longitude:  -1.870476)
-            let fifthAnnotation = CustomAnnotation(coordinate: fifthCoordinate, title: "Clue 5")
-            locations.append(fifthAnnotation)
-            
-            
-            
-            for location in locations {
-                locationManager.startMonitoring(for: location.region)
-                mapView.addAnnotation(location)
+        loadLocations()
             }
-            
-            mapView.showAnnotations(locations, animated: false)
-            
-            
-            
-        }
-        
-    }
     
+    func loadLocations() {
+        let ref = Firestore.firestore().collection("locations")
+        ref.getDocuments { (snapshot, error) in
+            for document in snapshot!.documents {
+                let annotation = CustomAnnotation(document: document)
+                self.mapView.addAnnotation(annotation)
+    
+            
+            }
+    
+        }
+    }
+
+            
+    }
+
     extension ViewController: CLLocationManagerDelegate {
         
         func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -100,7 +85,7 @@ class ViewController: UIViewController {
             guard let annotation = annotation as? CustomAnnotation else { return nil }
             let identifier = "marker"
             var view: CustomAnnotationView
-            
+        
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
                 as? CustomAnnotationView {
                 dequeuedView.annotation = annotation
@@ -128,25 +113,25 @@ class ViewController: UIViewController {
         
         
         
-        override func viewDidAppear(_ animated: Bool) {
-            createAlert(title: "CONGRATULATIONS", message: "YOU FOUND A CLUE")
-        }
-        
-        
-        func createAlert (title:String, message:String)
-        {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-            //CREATING ON BUTTON
-            
-            alert.addAction(UIAlertAction(title: "GIVE HINT FOR NEXT CLUE", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
-                print( "GIVE HINT FOR NEXT CLUE")
-            
-          
-            }))
-            
-            self.present(alert, animated: true, completion: nil)
-        }
-        
+//        override func viewDidAppear(_ animated: Bool) {
+//            createAlert(title: "CONGRATULATIONS", message: "YOU FOUND A CLUE")
+//        }
+//
+//
+//        func createAlert (title:String, message:String)
+//        {
+//            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+//            //CREATING ON BUTTON
+//
+//            alert.addAction(UIAlertAction(title: "GIVE HINT FOR NEXT CLUE", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+//                print( "GIVE HINT FOR NEXT CLUE")
+//
+//
+//            }))
+//
+//            self.present(alert, animated: true, completion: nil)
+//        }
+//
     }
 
 

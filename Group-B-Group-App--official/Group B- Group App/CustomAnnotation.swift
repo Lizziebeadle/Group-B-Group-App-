@@ -1,17 +1,20 @@
 import MapKit
+import Firebase
 
 class CustomAnnotation: NSObject, MKAnnotation {
     
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var color: UIColor!
-    var region: CLCircularRegion
+//    var region: CLCircularRegion
     var selectable = false
     
-    init(coordinate: CLLocationCoordinate2D, title: String) {
-        self.coordinate = coordinate
-        self.title = title
-        region = CLCircularRegion(center: coordinate, radius: 100, identifier: title)
+    init(document: DocumentSnapshot) {
+     let data = document.data()!
+     title = data["name"] as? String
+     let geoPoint = data["coordinates"] as! GeoPoint
+     coordinate = CLLocationCoordinate2D(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
+//     region = data["name"] as? CLCircularRegion
     }
     
 }
