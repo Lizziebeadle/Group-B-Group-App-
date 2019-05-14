@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bxJ-a7-ql3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -33,12 +33,12 @@
                     <navigationItem key="navigationItem" id="LOq-jl-COd"/>
                     <connections>
                         <outlet property="mapView" destination="gyT-1I-lmi" id="xNd-RD-O4u"/>
-                        <segue destination="fBa-ZG-bTa" kind="show" identifier="Next" customClass="UIStoryBoardSegue" id="X6u-I1-asJ"/>
+                        <segue destination="fBa-ZG-bTa" kind="show" identifier="Next" id="X6u-I1-asJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="279" y="71"/>
+            <point key="canvasLocation" x="-463" y="28"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vc4-dO-ty8">
@@ -54,22 +54,31 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZb-US-3nS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-766" y="71"/>
+            <point key="canvasLocation" x="-1535" y="27"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="xHw-xu-OcS">
             <objects>
-                <viewController storyboardIdentifier="SecondViewController" id="fBa-ZG-bTa" customClass="SecondViewController" customModule="Group_B__Group_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fBa-ZG-bTa" customClass="SecondViewController" customModule="Group_B__Group_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y2e-nD-X8A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35C-Ol-gMz">
+                                <rect key="frame" x="141" y="80" width="92" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="TRL-aN-ctW"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCm-k4-TWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1175" y="166"/>
+            <point key="canvasLocation" x="1351" y="71"/>
         </scene>
     </scenes>
 </document>

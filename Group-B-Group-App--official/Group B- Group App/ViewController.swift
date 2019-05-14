@@ -10,6 +10,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     var locations = [CustomAnnotation]()
+    
+    var userLocation: CLLocation!
         
     override func viewDidLoad() {
             super.viewDidLoad()
@@ -45,26 +47,29 @@ class ViewController: UIViewController {
     }
 
             
-    }
+}
 
     extension ViewController: CLLocationManagerDelegate {
         
         func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        }
-        
-        func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-            print("Entered: \(region.identifier) region.")
+            guard let mostRecent = locations.last else { return }
+            userLocation = mostRecent
             
-            guard let annotation = locations.first(where: { $0.title! == region.identifier }) else  { return }
-            annotation.selectable = true
-            
-        }
-        
-        func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-            print("Left: \(region.identifier) region.")
-            
-            guard let annotation = locations.first(where: { $0.title! == region.identifier }) else  { return }
-            annotation.selectable = false
+//        }
+//
+//        func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+//            print("Entered: \(region.identifier) region.")
+//
+//            guard let annotation = locations.first(where: { $0.title! == region.identifier }) else  { return }
+//            annotation.selectable = true
+//
+//        }
+//
+//        func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+//            print("Left: \(region.identifier) region.")
+//
+//            guard let annotation = locations.first(where: { $0.title! == region.identifier }) else  { return }
+//            annotation.selectable = false
         }
         
     }
@@ -74,8 +79,12 @@ class ViewController: UIViewController {
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
             mapView.deselectAnnotation(view.annotation, animated: true)
             guard let annoation = view.annotation as? CustomAnnotation else { return }
-            if annoation.selectable {
-                performSegue(withIdentifier: "Next", sender: view.annotation!)
+            
+            let distance = userLocation.distance(from: CLLocation(latitude: annoation.coordinate.latitude, longitude: annoation.coordinate.longitude))
+                
+            if distance < 100 {
+            performSegue(withIdentifier: "Next", sender: view.annotation!)
+                
             }
             
         }

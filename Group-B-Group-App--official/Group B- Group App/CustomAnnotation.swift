@@ -6,7 +6,6 @@ class CustomAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var color: UIColor!
-//    var region: CLCircularRegion
     var selectable = false
     
     init(document: DocumentSnapshot) {
@@ -14,7 +13,7 @@ class CustomAnnotation: NSObject, MKAnnotation {
      title = data["name"] as? String
      let geoPoint = data["coordinates"] as! GeoPoint
      coordinate = CLLocationCoordinate2D(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
-//     region = data["name"] as? CLCircularRegion
+    
     }
     
 }
