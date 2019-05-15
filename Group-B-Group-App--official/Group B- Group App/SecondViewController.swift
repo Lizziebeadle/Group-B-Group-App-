@@ -1,7 +1,6 @@
 import UIKit
 import MapKit
 import Firebase
-import FirebaseStorage
 
 protocol SecondViewControllerDelegate {
     func didUpdate(annotation: CustomAnnotation)
@@ -11,35 +10,89 @@ class SecondViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
-    
     var annotation: CustomAnnotation!
     var delegate: SecondViewControllerDelegate?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         titleLabel.text = annotation.title!
         imageView.image = UIImage(named: annotation.title!)
-}
-//    let storage = Storage.storage()
-//    let storageRef = storage.reference()
+        loadInformation()
+    }
+    
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        UIImagePickerController.SourceType.camera
 //
-//    let imagesRef = StorageReference.child("images")
-//    var spaceRef = StorageReference.child("images/space.jpg")
+////        self.present(UIImagePickerController, animated: true, completion: nil)
 //
-//    let storagePath = "\(images)/images/space.jpg"
-//    spaceRef = storage.reference(forURL: storagePath)
 //
-//    let localFile = URL(string: "path/to/image")
-//    let riversRef = StorageReference.child("images/rivers.jpg")
-//    let uploadTask = riversRef.putFile(from: localFile, metadata: nil) {metadata, error in guard let metadata = metadata else {
-//        }
-//    let size = metadata.size
-//        storageRef.downloadURL { (url, error) in guard let downloadURL = url else {
-//            }
-//            }
+//        let uuid = UUID().uuidString
+//        let image = UIImage(named: "test")!
+//        let storageRef = Storage.storage().reference().child(uuid)
+//        var sourceType: UIImagePickerController.SourceType
+//        var allowsEditing: Bool = true
 //
-//        }
 //
+//
+//
+//        let data = image.jpegData(compressionQuality: 0.2)!
+//
+//        let meta = StorageMetadata()
+//        meta.contentType = "image/jpeg"
+//
+//        storageRef.putData(data, metadata: meta) { meta, error in
+//            print(error.debugDescription)
+//
+//            func imagePicker(){
+//                if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+//
+//                }
+//
+//                class UIPopoverPresentationController : UIPresentationController{
+//
+//
+//                }
+//
+//
+    
+        }
+    
+            
+            
+        
+
+
+//public protocol ImagePickerDelegate: class {
+//    func didSelect(image: UIImage?)
+//}
+//open class ImagePicker: NSObject {
+//    private let pickerController: UIImagePickerController
+//    private weak var presentationController: UIViewController?
+//    private weak var delegate: ImagePickerDelegate?
+//
+//    public init(presentationController: UIViewController, delegate: ImagePickerDelegate) {
+//        self.pickerController = UIImagePickerController()
+//
+//        super.init()
+//
+//        self.presentationController = presentationController
+//        self.delegate = delegate
+//
+//        self.pickerController.delegate = self
+//        self.pickerController.delegate = true
+//        self.pickerController.mediaTypes = ["public.image"]
+//
+//    }
+//
+//    private func action(for type: UIImagePickerController.SourceType, title: String) -> UIAlertAction
+
+func loadInformation() {
+    let ref = Firestore.firestore().collection("information")
+    ref.getDocuments { (snapshot, error) in
+        for document in snapshot!.documents {
+            let textView = CustomText(document: document)
 }

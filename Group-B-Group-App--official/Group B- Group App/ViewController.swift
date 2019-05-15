@@ -1,7 +1,6 @@
 import UIKit
 import MapKit
 import Firebase
-import FirebaseStorage
 
 
 class ViewController: UIViewController {
@@ -25,11 +24,6 @@ class ViewController: UIViewController {
             
             mapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: "marker")
             mapView.delegate = self
-        
-        
-//        let coordinate = CLLocationCoordinate2D(latitude: 50.715739, longitude: -1.875466)
-//        let region = CLCircularRegion(center: coordinate, radius: 10, identifier: "Pier")
-//        locationManager.startMonitoring(for: region)
         
         loadLocations()
             }
@@ -82,7 +76,7 @@ class ViewController: UIViewController {
             
             let distance = userLocation.distance(from: CLLocation(latitude: annoation.coordinate.latitude, longitude: annoation.coordinate.longitude))
                 
-            if distance < 100 {
+            if distance < 50000 {
             performSegue(withIdentifier: "Next", sender: view.annotation!)
                 
             }
