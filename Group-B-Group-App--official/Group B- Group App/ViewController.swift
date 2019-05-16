@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         loadLocations()
             }
     
+// FIRE BASE LOADING LOCATIONS
     func loadLocations() {
         let ref = Firestore.firestore().collection("locations")
         ref.getDocuments { (snapshot, error) in
@@ -70,12 +71,16 @@ class ViewController: UIViewController {
     
     extension ViewController: MKMapViewDelegate {
         
+        
+        
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
             mapView.deselectAnnotation(view.annotation, animated: true)
             guard let annoation = view.annotation as? CustomAnnotation else { return }
             
             let distance = userLocation.distance(from: CLLocation(latitude: annoation.coordinate.latitude, longitude: annoation.coordinate.longitude))
-                
+            
+//          REGIONS ALTERNATIVE
+            
             if distance < 50000 {
             performSegue(withIdentifier: "Next", sender: view.annotation!)
                 

@@ -9,9 +9,9 @@ protocol SecondViewControllerDelegate {
 class SecondViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
-    
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    
     var annotation: CustomAnnotation!
     var delegate: SecondViewControllerDelegate?
     
@@ -19,8 +19,9 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = annotation.title!
+        descLabel.text = annotation.desc!
         imageView.image = UIImage(named: annotation.title!)
-        loadInformation()
+
     }
     
     
@@ -90,9 +91,12 @@ class SecondViewController: UIViewController {
 //
 //    private func action(for type: UIImagePickerController.SourceType, title: String) -> UIAlertAction
 
-func loadInformation() {
-    let ref = Firestore.firestore().collection("information")
-    ref.getDocuments { (snapshot, error) in
-        for document in snapshot!.documents {
-            let textView = CustomText(document: document)
-}
+//func loadInformation() {
+//    let ref = Firestore.firestore().collection("information")
+//    ref.getDocuments { (snapshot, error) in
+//        for document in snapshot!.documents {
+////            let textView = UITextView (document: document)
+//        }
+//    }
+//}
+
